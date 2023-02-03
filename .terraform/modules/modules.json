@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"ec2_instance","Source":"./ec2-instances","Dir":"ec2-instances"},{"Key":"local_instance","Source":"./local","Dir":"local"},{"Key":"ec2_instances","Source":"./ec2-instances","Dir":"ec2-instances"},{"Key":"","Source":"","Dir":"."}]}
+{"Modules":[{"Key":"ec2_instance","Source":"./ec2-instances","Dir":"ec2-instances"},{"Key":"local_instance","Source":"./local","Dir":"local"},{"Key":"ec2_instances","Source":"./ec2-instances","Dir":"ec2-instances"},{"Key":"","Source":"","Dir":"."},{"Key":"ec2-instance","Source":"./ec2-instances","Dir":"ec2-instances"}]}

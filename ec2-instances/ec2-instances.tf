@@ -13,19 +13,16 @@ resource "aws_instance" "ec2-instance" {
  subnet_id = aws_subnet.my_subnet_1.id
 
  associate_public_ip_address = true
-
- provisioner "local-exec" {
-
-  on_failure = continue
-    command = "echo ${self.public_ip}  >> /vagrant/terraform/ansible/host-inventory"
-    # command = "echo web-server-${count.index} ${self.public_ip}  >> /vagrant/terraform/ansible/host-inventory"
-  }
-
-  provisioner "local-exec" {
-command = "ansible-playbook -i host-inventory main.yml"
-working_dir = "/vagrant/terraform/ansible/"
 }
 
+resource "local_file" "my_ips" {
+  
+  filename = "/vagrant/terraform/ansible/host-inventory"
+  content = <<EOT
+  ${aws_instance.ec2-instance[0].public_ip}
+  ${aws_instance.ec2-instance[1].public_ip}
+  ${aws_instance.ec2-instance[2].public_ip}
+ EOT
 }
 
 resource "aws_key_pair" "ssh-key"{
